@@ -1,0 +1,23 @@
+{
+  "name": "Sistema-Juquila-Backend",
+  "version": "1.0.0",
+  "description": "Sistema de Backend de sistema trajes",
+  "main": "dist/index.js",
+  "repository": "https://github.com/Drk01/Sistema-Juquila-Backend",
+  "author": "Omar Monrroy <ogcm.kael@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon dist/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.2",
+    "@types/lodash": "^4.14.149",
+    "@types/sequelize": "^4.28.8"
+  }
+}
