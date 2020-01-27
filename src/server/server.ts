@@ -23,6 +23,8 @@ export class App {
 
   private routes() {
     const router = express.Router();
+
+    this.app.use('/api', AuthRoutes);
   }
 
   async listen(): Promise<void> {
