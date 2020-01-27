@@ -1,5 +1,6 @@
 import express, { Application } from 'express';
 import morgan from 'morgan';
+import AuthRoutes from '../routes/AuthRoutes';
 
 export class App {
   app: Application;
@@ -20,7 +21,9 @@ export class App {
     this.app.use(express.json());
   }
 
-  private routes() {}
+  private routes() {
+    const router = express.Router();
+  }
 
   async listen(): Promise<void> {
     await this.app.listen(this.app.get('port'));
