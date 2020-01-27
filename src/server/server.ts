@@ -16,7 +16,6 @@ export class App {
   }
 
   private middlewares() {
-    // TODO: Implementar dotenv para manejar variables de entorno.
     this.app.use(morgan('dev'));
     this.app.use(express.json());
   }
