@@ -1,11 +1,15 @@
-import express, { Application } from 'express';
-import morgan from 'morgan';
+import { Application } from 'express';
+import * as express from 'express';
+import * as morgan from 'morgan';
 import AuthRoutes from '../routes/AuthRoutes';
+import { createConnection } from 'typeorm';
+import 'reflect-metadata';
 
 export class App {
   app: Application;
 
   constructor(private port?: number | string) {
+    this.database();
     this.app = express();
     this.settings();
     this.middlewares();
@@ -25,6 +29,14 @@ export class App {
     const router = express.Router();
 
     this.app.use('/api', AuthRoutes);
+  }
+
+  private async database() {
+    try {
+      return await createConnection();
+    } catch (error) {
+      console.error('TypeORM error', error);
+    }
   }
 
   async listen(): Promise<void> {
