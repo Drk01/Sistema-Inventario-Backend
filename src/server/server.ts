@@ -33,7 +33,7 @@ export class App {
 
   private async database() {
     try {
-      return await createConnection();
+      await createConnection();
     } catch (error) {
       console.error('TypeORM error', error);
     }
