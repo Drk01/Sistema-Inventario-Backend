@@ -1,6 +1,6 @@
-import { User } from './User';
-import { Priorities } from './../enums/TicketPriorities';
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import {User} from './User';
+import {Priorities} from '../enums/TicketPriorities';
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from 'typeorm';
 
 @Entity()
 export class Ticket {
