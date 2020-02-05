@@ -1,6 +1,6 @@
-import { Inventory } from './Inventory';
-import { Ticket } from './Ticket';
-import { PrimaryGeneratedColumn, Column, Entity, OneToMany } from 'typeorm';
+import {Inventory} from './Inventory';
+import {Ticket} from './Ticket';
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity()
 export class User {
@@ -27,7 +27,8 @@ export class User {
 
   @Column({
     length: 100,
-    nullable: false
+    nullable: false,
+    unique: true
   })
   username: string;
 
@@ -38,30 +39,32 @@ export class User {
   password: string;
 
   @Column({
-    nullable: false
+    nullable: false,
+    unique: true
   })
   email: string;
 
   @Column({
-    length: 100
+    length: 100,
+    nullable: true
   })
   resetCode: string;
 
   @Column({
     nullable: false,
-    default: false
+    default: 0
   })
   active: boolean;
 
   @OneToMany(
     type => Ticket,
-    ticket => user.tickets
+      ticket => ticket.user
   )
   tickets: Ticket[];
 
   @OneToMany(
     type => Inventory,
-    inventory => user.inventories
+      inventory => inventory.user
   )
   inventories: Inventory[];
 }
