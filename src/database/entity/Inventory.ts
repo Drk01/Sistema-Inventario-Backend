@@ -36,7 +36,7 @@ export class Inventory {
 
   @ManyToOne(
     type => User,
-    user => inventories.user
+      user => user.inventories
   )
   user: User;
 }
