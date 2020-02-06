@@ -1,9 +1,10 @@
-import { Application } from 'express';
 import * as express from 'express';
+import {Application} from 'express';
 import * as morgan from 'morgan';
 import AuthRoutes from '../routes/AuthRoutes';
-import { createConnection } from 'typeorm';
+import {createConnection} from 'typeorm';
 import 'reflect-metadata';
+import {Auth} from '../helpers/Auth';
 
 export class App {
   app: Application;
@@ -23,6 +24,7 @@ export class App {
   private middlewares() {
     this.app.use(morgan('dev'));
     this.app.use(express.json());
+    this.app.use(Auth.usingPassport);
   }
 
   private routes() {
